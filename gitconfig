@@ -1,8 +1,8 @@
 [user]
-	name = hannes
-	email = hannes@bellmer.org
+	name = Hannes Bellmer
 [core]
 	compression = -1
+	editor = vim
 [color]
 	ui = true
 [alias]
