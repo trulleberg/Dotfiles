@@ -1,5 +1,6 @@
 [user]
 	name = Hannes Bellmer
+  email = git@bellmer.org
 [core]
 	compression = -1
 	editor = vim
