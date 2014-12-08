@@ -2,12 +2,15 @@
 	name = Hannes Bellmer
   email = git@bellmer.org
 [core]
+  excludesfile = ~/.gitignore
 	compression = -1
 	editor = vim
 [color]
 	ui = true
+  status = auto
+  branch = auto
 [alias]
-        lg = log --graph --pretty=format:'%Cred%h%Creset - %C(bold blue)%an - %Cgreen(%cr)%Creset -  %s %Creset - %C(yellow) %D' --abbrev-commit
+        lg = log --color --graph --pretty=format:'%C(red)%h -%C(green)%cr -%C(bold blue) %an -%Creset %s %C(yellow) %D ' --abbrev-commit --branches --tags --date=short
         cm = commit -m
         ca = commit --amend
         d = diff --color-words

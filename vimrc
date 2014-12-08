@@ -69,7 +69,6 @@ set visualbell
 " line numbering on
 set number
 
-autocmd BufEnter *.{c,cpp,h} setl cindent
 autocmd Filetype text setl textwidth=80 " Editor bricht nach 80 Zeichen automatisch um
 
 " lets you use w!! to do that after you opened the file already, which you
