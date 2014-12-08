@@ -2,6 +2,8 @@ set background=dark
 " 256 colors color schemes
 let &t_Co=256
 colorscheme rainbo
+"let g:solarized_termcolors=16
+"colorscheme solarized
 
 set wildmenu
 set wildmode=longest,list,full
