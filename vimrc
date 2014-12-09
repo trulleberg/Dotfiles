@@ -71,8 +71,8 @@ set visualbell
 " line numbering on
 set number
 
-autocmd Filetype text setl textwidth=80 " Editor bricht nach 80 Zeichen automatisch um
-
 " lets you use w!! to do that after you opened the file already, which you
 " wanted to edit with root privileges
 cmap w!! w !sudo tee % >/dev/null
+
+set viminfo=""
