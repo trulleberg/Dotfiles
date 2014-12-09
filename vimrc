@@ -2,6 +2,8 @@ set background=dark
 " 256 colors color schemes
 let &t_Co=256
 colorscheme rainbo
+"let g:solarized_termcolors=16
+"colorscheme solarized
 
 set wildmenu
 set wildmode=longest,list,full
@@ -69,8 +71,8 @@ set visualbell
 " line numbering on
 set number
 
-autocmd Filetype text setl textwidth=80 " Editor bricht nach 80 Zeichen automatisch um
-
 " lets you use w!! to do that after you opened the file already, which you
 " wanted to edit with root privileges
 cmap w!! w !sudo tee % >/dev/null
+
+set viminfo=""

@@ -1,6 +1,6 @@
 [user]
 	name = Hannes Bellmer
-  email = git@bellmer.org
+  email = "(none)"
 [core]
   excludesfile = ~/.gitignore
 	compression = -1
