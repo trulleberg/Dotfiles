@@ -5,6 +5,7 @@ ignore = [
     '.gitignore',
     '*.swp'
     'README.md',
+    '*.wip',
     'LICENSE']
 externals = {
     '.bzr.log':     '/dev/null',
