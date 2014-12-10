@@ -33,7 +33,7 @@ function git_prompt_vars {
   GIT_BEHIND=''
 
 
-  if [[ -d ".git" ]]; then
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == "true" ]]; then
     local status="$(git status -b --porcelain 2> /dev/null || git status --porcelain 2> /dev/null)"
     if [[ -n "${status}" ]] && [[ "${status}" != "\n" ]] && [[ -n "$(grep -v ^# <<< "${status}")" ]]; then
       GIT_STATE=$PROMPT_PREFIX$PROMPT_DIRTY$PROMPT_SUFFIX
