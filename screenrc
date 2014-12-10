@@ -36,3 +36,8 @@ bindkey ^[[1;3C next
 
 # # Ctrl-Shift-T
 bindkey ^T screen
+
+screen -t root 0 sudo -i
+screen -t shell 1 bash
+screen -t syslog 22 bash 
+
