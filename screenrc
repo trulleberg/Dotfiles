@@ -1,23 +1,33 @@
-caption always "%{kw}%-w%{ky}%n %t%{-}%+w %=%{bw}@%H%{kw} %D %Y-%m-%d %c"
- hardstatus string "[%H]"
+# Be quiet on startup
+startup_message off
 
-# Ctrl-PageUp/Down or Alt-PageUp/Down or Alt-left/right
-bindkey ^[[5;5~ prev
-bindkey ^[[6;5~ next
-bindkey ^[[5;3~ prev
-bindkey ^[[6;3~ next
+# set the shell var, this makes sure my PS1 gets loaded inside screen
+shell -$SHELL
+# Enable 256Colors in Screen
+term screen-256color
+
+#Define the Status Bar in the bottom of the Window
+caption always "%{kw}%-w%{ky}%n %t%{-}%+w %=%{kw} %Y-%m-%d %c"
+#                 |  |    |  || ||     || |||              ^^^Time without Seconds
+#                 |  |    |  || ||     || ||||    ^^^^^^^^YEAR-MONTH-DAY
+#                 |  |    |  || ||     || ^^^^Tab and white
+#                 |  |    |  || ||     ^^removes color from all titles except the current one
+#                 |  |    |  || ^^Defines the window title
+#                 |  |    |  ^^Defines the window number
+#                 |  |    ^^^^^Yellow Window
+#                 |   ^^Defines the current window "-w"
+#                 ^^^^WhiteBG
+# SOURCE: https://www.gnu.org/software/screen/manual/html_node/String-Escapes.html#String-Escapes
+
+
+# Ctrl-PageUp/Down or Alt-PageUp/Down or Alt-left/right, remote the page up ones as I only use the alt-L/R ones
+#bindkey ^[[5;5~ prev
+#bindkey ^[[6;5~ next
+#bindkey ^[[5;3~ prev
+#bindkey ^[[6;3~ next
 bindkey ^[[1;3D prev
 bindkey ^[[1;3C next
-# putty uses Ctrl-PageUp/Down by itself
-# so only Alt-PageUp/Down and Alt-left/right
-bindkey ^[^[[5~ prev
-bindkey ^[^[[6~ next
-bindkey ^[^[OD prev
-bindkey ^[^[OC next
+
+
 # # Ctrl-Shift-T
 bindkey ^T screen
-
-# Detach mit logout 
-#bind d 
-#bind d pow_detach 
-#bind ^d pow_detach 
