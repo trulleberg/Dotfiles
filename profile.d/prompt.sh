@@ -55,7 +55,7 @@ function git_prompt_vars {
     [[ "${stash_count}" -gt 0 ]] && GIT_STASH="{${stash_count}}"
 
 
-    GPS=$BRANCH$GIT_STATE$GIT_AHEAD$GIT_BEHIND$GIT_STASH
+    GPS="["$BRANCH$GIT_STATE$GIT_AHEAD$GIT_BEHIND$GIT_STASH"${BWhite}]"
   else
     GPS=""
   fi
