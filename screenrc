@@ -5,6 +5,11 @@ startup_message off
 shell -$SHELL
 # Enable 256Colors in Screen
 term screen-256color
+#Set the title 
+termcapinfo xterm* ti@:te@
+#Make utf the default
+defutf8 on
+utf8 on on
 
 #Define the Status Bar in the bottom of the Window
 caption always "%{kw}%-w%{ky}%n %t%{-}%+w %=%{kw} %Y-%m-%d %c"
