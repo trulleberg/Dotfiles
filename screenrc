@@ -2,11 +2,14 @@
 startup_message off
 
 # set the shell var, this makes sure my PS1 gets loaded inside screen
-shell -$SHELL
+# //TODO add OSX check
+#shell -$SHELL
 # Enable 256Colors in Screen
 term screen-256color
+# set these terminals up to be 'optimal' instead of vt100
+termcapinfo xterm*|linux*|rxvt*|Eterm* OP
 #Set the title 
-termcapinfo xterm* ti@:te@
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
 #Make utf the default
 defutf8 on
 utf8 on on
@@ -25,13 +28,13 @@ caption always "%{kw}%-w%{ky}%n %t%{-}%+w %=%{kw} %Y-%m-%d %c"
 # SOURCE: https://www.gnu.org/software/screen/manual/html_node/String-Escapes.html#String-Escapes
 
 
-# Ctrl-PageUp/Down or Alt-PageUp/Down or Alt-left/right, remote the page up ones as I only use the alt-L/R ones
-#bindkey ^[[5;5~ prev
-#bindkey ^[[6;5~ next
-#bindkey ^[[5;3~ prev
-#bindkey ^[[6;3~ next
+# Alt-left/right to jump between sessions
 bindkey ^[[1;3D prev
 bindkey ^[[1;3C next
+
+# Make pageup/down work for scroll
+bindkey "^[[5~" eval "copy" "stuff ^b"
+bindkey "^[[6~" eval "copy" "stuff ^f"
 
 
 # # Ctrl-Shift-T
