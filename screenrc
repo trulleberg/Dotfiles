@@ -32,9 +32,9 @@ caption always "%{kw}%-w%{ky}%n %t%{-}%+w %=%{kw} %Y-%m-%d %c"
 bindkey ^[[1;3D prev
 bindkey ^[[1;3C next
 
-# Make pageup/down work for scroll
-bindkey "^[[5~" eval "copy" "stuff ^b"
-bindkey "^[[6~" eval "copy" "stuff ^f"
+# Make ctrl+pageup/down work for scroll
+bindkey "^[[5;5~" eval "copy" "stuff ^b"
+bindkey "^[[6;5~" eval "copy" "stuff ^f"
 
 
 # # Ctrl-Shift-T
