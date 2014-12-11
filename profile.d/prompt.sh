@@ -1,3 +1,7 @@
+#Hannes prompt.sh
+# //TODO add a check if we are on darwin, if yes add  to the propmt
+# //TODO add a check if git is installed
+
 # Define color variables
 Color_Off='\[\033[0m\]'         # Text Reset
 
@@ -66,7 +70,7 @@ prompt() {
   case $(id -u) in
     0) PS1="${Red}┌─[\u${Color_Off}@${BBlue}\h:${BWhite}$GPS${Yellow}\w${Red}]\n└─# ${Color_Off}"
     ;;
-    *) PS1="${Green}┌─[\u${Color_Off}@${BBlue}\h:${BWhite}$GPS${Yellow}\w${Green}]\n└─\$${Color_Off} "
+    *) PS1="${Green}┌─[\u${Color_Off}@${BBlue}\h :${BWhite}$GPS${Yellow}\w${Green}]\n└─\$${Color_Off} "
     ;;
   esac
 }

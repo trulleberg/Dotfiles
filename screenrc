@@ -24,14 +24,15 @@ caption always "%{kw}%-w%{ky}%n %t%{-}%+w %=%{kw} %Y-%m-%d %c"
 #                 ^^^^WhiteBG
 # SOURCE: https://www.gnu.org/software/screen/manual/html_node/String-Escapes.html#String-Escapes
 
-
-# Ctrl-PageUp/Down or Alt-PageUp/Down or Alt-left/right, remote the page up ones as I only use the alt-L/R ones
-#bindkey ^[[5;5~ prev
-#bindkey ^[[6;5~ next
-#bindkey ^[[5;3~ prev
-#bindkey ^[[6;3~ next
-bindkey ^[[1;3D prev
-bindkey ^[[1;3C next
+#make alt left/righ jump to the next shell, depending on the hosttype
+if [ "$(uname)" == "Darwin" ]; then
+  # Do something under Mac OS X platform
+  bindkey ^[^[[D prev
+  bindkey ^[^[[C next
+elif [ $(uname) = "Linux" ]; then
+  bindkey ^[[1;3D prev
+  bindkey ^[[1;3C next
+fi
 
 
 # # Ctrl-Shift-T
