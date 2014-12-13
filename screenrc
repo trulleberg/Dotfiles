@@ -1,8 +1,6 @@
 # Be quiet on startup
 startup_message off
 
-# set the shell var, this makes sure my PS1 gets loaded inside screen
-shell -$SHELL
 # Enable 256Colors in Screen
 term screen-256color
 #Set the title 
@@ -31,6 +29,8 @@ if [ "$(uname)" == "Darwin" ]; then
   bindkey ^[^[[C next
   bindkey ^[[5~ eval "copy" "stuff ^b"
   bindkey ^[[6~ eval "copy" "stuff ^f"
+  # set the shell var, this makes sure my PS1 gets loaded inside screen
+  shell -$SHELL
 elif [ $(uname) = "Linux" ]; then
   bindkey ^[[1;3D prev
   bindkey ^[[1;3C next
@@ -39,6 +39,8 @@ elif [ $(uname) = "Linux" ]; then
   bindkey "^[[6;5~" eval "copy" "stuff ^f"
 fi
 
+# keep scrollback n lines
+defscrollback 1000
 
 # # Ctrl-Shift-T
 bindkey ^T screen
