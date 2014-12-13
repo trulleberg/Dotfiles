@@ -17,6 +17,13 @@
         s = status -s
         a = !git add . && git status
         au = !git add -u . && git status
+        b = branch -v
+        r = remote -v
+        t = tag -l
+        unstage = reset HEAD
+        uncommit = reset --soft HEAD^
 [merge]
 	ff = false
-
+  summary = true
+[gc]
+  auto=1
