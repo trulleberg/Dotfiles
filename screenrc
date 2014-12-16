@@ -29,9 +29,14 @@ if [ "$(uname)" == "Darwin" ]; then
   # Do something under Mac OS X platform
   bindkey ^[^[[D prev
   bindkey ^[^[[C next
+  bindkey ^[[5~ eval "copy" "stuff ^b"
+  bindkey ^[[6~ eval "copy" "stuff ^f"
 elif [ $(uname) = "Linux" ]; then
   bindkey ^[[1;3D prev
   bindkey ^[[1;3C next
+# Make ctrl+pageup/down work for scroll
+  bindkey "^[[5;5~" eval "copy" "stuff ^b"
+  bindkey "^[[6;5~" eval "copy" "stuff ^f"
 fi
 
 
