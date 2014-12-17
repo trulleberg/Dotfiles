@@ -4,10 +4,10 @@ startup_message off
 # set the shell var, this makes sure my PS1 gets loaded inside screen
 # //TODO add OSX check
 #shell -$SHELL
-# Enable 256Colors in Screen
+#Enable 256Colors in Screen
 term screen-256color
 # set these terminals up to be 'optimal' instead of vt100
-termcapinfo xterm*|linux*|rxvt*|Eterm* OP
+#termcapinfo xterm*|linux*|rxvt*|Eterm* OP
 #Set the title 
 termcapinfo xterm|xterms|xs|rxvt ti@:te@
 #Make utf the default
@@ -32,6 +32,12 @@ caption always "%{kw}%-w%{ky}%n %t%{-}%+w %=%{kw} %Y-%m-%d %c"
 bindkey ^[[1;3D prev
 bindkey ^[[1;3C next
 
+# navigating regions with Ctrl-arrows
+bindkey "^[[1;5D" focus left
+bindkey "^[[1;5C" focus right
+bindkey "^[[1;5A" focus up
+bindkey "^[[1;5B" focus down 
+
 # Make ctrl+pageup/down work for scroll
 bindkey "^[[5;5~" eval "copy" "stuff ^b"
 bindkey "^[[6;5~" eval "copy" "stuff ^f"
@@ -44,3 +50,5 @@ screen -t root 0 sudo -i
 screen -t shell 1 bash
 screen -t syslog 22 bash 
 
+# mouse tracking allows to switch region focus by clicking
+mousetrack on
