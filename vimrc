@@ -62,7 +62,7 @@ set so=5 " Keep 5 lines (top/bottom) for scope
 set novisualbell " don't blink
 " statusline example: ~\myfile[+] [FORMAT=format] [TYPE=type] [ASCII=000] [HEX=00] [POS=0000,0000][00%] [LEN=000]
 " set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ %m\ [%p%%]\ [%l/%L]
+set statusline=%F%m%r%h%w\ %=[FORMAT=%{&ff}]\ [%l/%L]
 set laststatus=2 " always show the status line
 
 
@@ -115,5 +115,3 @@ set modeline
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set enc=utf-8 " UTF-8 as default encoding
-
-au BufRead,BufNewFile *.bats set filetype=sh
