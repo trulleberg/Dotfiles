@@ -24,5 +24,8 @@
         uncommit = reset --soft HEAD^
 	pl = pull --rebase
 	ms = merge --squash
+[merge]
+    ff = false
+    summary = true
 [gc]
   auto=1
