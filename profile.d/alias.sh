@@ -11,6 +11,8 @@ fi
 
 
 #Start with my aliasses
+#alias hmux="tmux new -s hb"
+alias diff="diff -y"
 alias g='git'
 alias free="free -m"
 alias df="df -h"

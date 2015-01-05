@@ -49,7 +49,7 @@ set report=0 " tell us when anything is changed via :...
 set noerrorbells " don't make noise
 set list " we do what to show tabs, to ensure we get them out of my files
 "set listchars=tab:>-,trail:-,eol:$ " show tabs and trailing whitespace
-set listchars=tab:»·,trail:·,precedes:«,extends:» " show tabs and trailing whitespace
+set listchars=tab:»·,trail:·,precedes:«,extends:»,eol:¶ " show tabs and trailing whitespace
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual Cues
@@ -61,8 +61,8 @@ set incsearch " BUT do highlight as you type you search phrase
 set so=5 " Keep 5 lines (top/bottom) for scope
 set novisualbell " don't blink
 " statusline example: ~\myfile[+] [FORMAT=format] [TYPE=type] [ASCII=000] [HEX=00] [POS=0000,0000][00%] [LEN=000]
-" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ %m\ [%p%%]\ [%l/%L]
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=%F%m%r%h%w\ %=[FORMAT=%{&ff}]\ [%p%%]\ [%l/%L]
 set laststatus=2 " always show the status line
 
 
@@ -90,6 +90,7 @@ set ignorecase " case insensitive by default
 set smartcase " if there are caps, go case-sensitive
 set completeopt=menu,longest,preview " improve the way autocomplete works
 set cursorcolumn " show the current column
+set textwidth=80
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
@@ -106,8 +107,6 @@ set foldopen-=undo " don't open folds when you undo stuff
 
 
 
-
-
 set modeline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -115,5 +114,3 @@ set modeline
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set enc=utf-8 " UTF-8 as default encoding
-
-au BufRead,BufNewFile *.bats set filetype=sh

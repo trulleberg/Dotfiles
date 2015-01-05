@@ -19,5 +19,6 @@
         au = !git add -u . && git status
 [merge]
 	ff = false
+	summary = ture
 [push]
 	default = simple

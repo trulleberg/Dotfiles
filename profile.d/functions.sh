@@ -26,3 +26,15 @@ function mkdircd () { mkdir "$@" && eval cd "\"\$$#\""; }
 #if [[ -e ~/.ssh/known_hosts ]]; then
 #  complete -o default -W "$(cat ~/.ssh/known_hosts | sed 's/[, ].*//' | sort | uniq | grep -v '[0-9]')" ssh scp sftp
 #fi
+
+ssh() {
+  tmux rename-window "$*"
+  command ssh "$@"
+  echo "Counting to 10"
+  sleep 10 && exit
+  tmux rename-window "bash (exited ssh)"
+  }
+
+hmux() {
+  (tmux ls | grep -vq attached && tmux -2 at) || tmux -2 new -s hb
+}
