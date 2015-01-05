@@ -23,8 +23,6 @@
         unstage = reset HEAD
         uncommit = reset --soft HEAD^
 	pl = pull --rebase
-[merge]
-	ff = false
-  summary = true
+	ms = merge --squash
 [gc]
   auto=1
