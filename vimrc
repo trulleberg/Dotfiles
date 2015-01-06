@@ -71,7 +71,7 @@ set laststatus=2 " always show the status line
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set ai " autoindent (filetype indenting instead)
 set nosi " smartindent (filetype indenting instead)
-set cindent " do c-style indenting
+"set cindent " do c-style indenting
 set softtabstop=4 " unify
 set shiftwidth=4 " unify
 set tabstop=4 " real tabs should be 4, but they will show with set list on
@@ -90,6 +90,7 @@ set ignorecase " case insensitive by default
 set smartcase " if there are caps, go case-sensitive
 set completeopt=menu,longest,preview " improve the way autocomplete works
 set cursorcolumn " show the current column
+set textwidth=79
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
@@ -103,9 +104,6 @@ set foldmethod=marker " Fold on the marker
 set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldopen-=search " don't open folds when you search into them
 set foldopen-=undo " don't open folds when you undo stuff
-
-
-
 
 
 set modeline
