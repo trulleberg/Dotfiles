@@ -11,6 +11,7 @@ fi
 
 
 #Start with my aliasses
+alias hmux='tmux attach-session -t hb || tmux new-session -s hb'
 alias g='git'
 alias free="free -m"
 alias df="df -h"
