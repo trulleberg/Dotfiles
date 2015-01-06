@@ -1,4 +1,4 @@
-extract () {
+function extract () {
     if [ -f $1 ] ; then
       case $1 in
         *.tar.bz2)   tar xjf $1     ;;
@@ -21,6 +21,28 @@ extract () {
 
 function mkdircd () { mkdir "$@" && eval cd "\"\$$#\""; }
 
+# ssh wrapper that rename current tmux window to the hostname of the
+# remote host.
+function ssh() {
+    # Do nothing if we are not inside tmux or ssh is called without arguments
+    if [[ $# == 0 || -z $TMUX ]]; then
+        command ssh $@
+        return
+    fi
+    # The hostname is the last parameter 
+    local remote="${@: -1}"
+    local old_name="$(tmux display-message -p '#W')"
+    local renamed=0
+    # Save the current name
+    if [[ $remote != -* ]]; then
+        renamed=1
+        tmux rename-window $remote
+    fi
+    command ssh $@
+    if [[ $renamed == 1 ]]; then
+        tmux rename-window "$old_name"
+    fi
+}
 
 # SSH auto-completion based on entries in known_hosts.
 #if [[ -e ~/.ssh/known_hosts ]]; then
