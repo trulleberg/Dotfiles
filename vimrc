@@ -62,7 +62,8 @@ set so=5 " Keep 5 lines (top/bottom) for scope
 set novisualbell " don't blink
 " statusline example: ~\myfile[+] [FORMAT=format] [TYPE=type] [ASCII=000] [HEX=00] [POS=0000,0000][00%] [LEN=000]
 " set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ %m\ [%p%%]\ [%l/%L]
+"set statusline=%F%m%r%h%w\ %=[FORMAT=%{&ff}]\ [%p%%]\ [%l/%L]
+set statusline=%f%m\ %=[FORMAT=%{&ff}]\ [ENCODING=%{strlen(&fenc)?&fenc:&enc}]\ [%p%%]\ [%l/%L]
 set laststatus=2 " always show the status line
 
 
@@ -77,6 +78,7 @@ set shiftwidth=4 " unify
 set tabstop=4 " real tabs should be 4, but they will show with set list on
 set copyindent " but above all -- follow the conventions laid before us
 filetype plugin indent on " load filetype plugins and indent settings
+set smarttab  " Use smart tabs
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Formatting/Layout
