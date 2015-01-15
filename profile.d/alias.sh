@@ -11,6 +11,7 @@ fi
 
 
 #Start with my aliasses
+alias dusch="du -sch * | sort -k1 -h "
 alias hmux='tmux attach-session -t hb || tmux new-session -s hb'
 alias g='git'
 alias free="free -m"
