@@ -81,7 +81,16 @@ set noerrorbells " don't make noise
 set list " we do what to show tabs, to ensure we get them out of my files
 "set listchars=tab:>-,trail:-,eol:$ " show tabs and trailing whitespace
 set listchars=tab:»·,trail:·,precedes:«,extends:» " show tabs and trailing whitespace
-
+set lsp=0 " space it out a little more (easier to read)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Split related
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual Cues
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
