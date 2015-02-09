@@ -5,7 +5,7 @@ if [ "$(uname)" == "Darwin" ]; then
   export LSCOLORS=GxFxCxDxBxegedabagaced
 elif [ $(uname) = "Linux" ]; then
   export LS_OPTIONS=' --color=auto'
-  export GREP_OPTIONS='--color=auto'
+  #export GREP_OPTIONS='--color=auto'
 fi
 
 
