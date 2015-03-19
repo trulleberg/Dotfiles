@@ -21,6 +21,12 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Template Plugin
 Plugin 'aperezdc/vim-template'
+Plugin 'scrooloose/nerdtree'
+" Syntax for Doccker files
+Plugin 'ekalinin/Dockerfile.vim'
+" Vim Markdown syntax hightlight
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -132,7 +138,7 @@ set ignorecase " case insensitive by default
 set smartcase " if there are caps, go case-sensitive
 set completeopt=menu,longest,preview " improve the way autocomplete works
 set cursorcolumn " show the current column
-set textwidth=79
+"set textwidth=79
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
@@ -159,3 +165,16 @@ set enc=utf-8 " UTF-8 as default encoding
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:username = "Hannes|L3"
 let g:email ="hanbel@de.ibm.com"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Options for NERDTree, from https://github.com/scrooloose/nerdtree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Open NERDTree when no file is spcified!
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" CTRL N Toggles NERDTree
+"map <silent> <C-n> :NERDTreeFocus<CR>
+map <silent> <C-n> :NERDTreeToggle<CR>
+" Close vim if NERDTree is the last windows
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
