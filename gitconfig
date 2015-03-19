@@ -17,6 +17,9 @@
         s = status -s
         a = !git add . && git status
         au = !git add -u . && git status
+        tags = tag -l
+        branches = branch -av
+        remotes = remote -v
 [merge]
 	ff = false
 [push]
