@@ -39,7 +39,7 @@ function ssh() {
         tmux rename-window $remote
     fi
     command ssh $@
-    sleep 5
+    sleep 2
     if [[ $renamed == 1 ]]; then
         tmux rename-window "$old_name"
     fi
