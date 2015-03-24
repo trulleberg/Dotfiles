@@ -6,6 +6,41 @@
 "  https://github.com/Strubbl/dotfiles/blob/master/vimrc
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible " be iMproved, required
+filetype off " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+" Template Plugin
+Plugin 'scrooloose/nerdtree'
+" Syntax for Doccker files
+Plugin 'ekalinin/Dockerfile.vim'
+" Vim Markdown syntax hightlight
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+" All of your Plugins must be added before the following line
+call vundle#end() " required
+filetype plugin indent on " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList - lists configured plugins
+" :PluginInstall - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme related stuff
@@ -51,6 +86,15 @@ set list " we do what to show tabs, to ensure we get them out of my files
 "set listchars=tab:>-,trail:-,eol:$ " show tabs and trailing whitespace
 set listchars=tab:»·,trail:·,precedes:«,extends:» " show tabs and trailing whitespace
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Split related
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual Cues
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -115,3 +159,16 @@ set modeline
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set enc=utf-8 " UTF-8 as default encoding
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Options for NERDTree, from https://github.com/scrooloose/nerdtree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Open NERDTree when no file is spcified!
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" CTRL N Toggles NERDTree
+"map <silent> <C-n> :NERDTreeFocus<CR>
+map <silent> <C-n> :NERDTreeToggle<CR>
+" Close vim if NERDTree is the last windows
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
