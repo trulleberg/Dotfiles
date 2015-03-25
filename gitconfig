@@ -1,14 +1,14 @@
 [user]
-	name = Hannes Bellmer
-  email = "(none)"
+    name = Hannes Bellmer
+    email = "(none)"
 [core]
-  excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
 	compression = -1
 	editor = vim
 [color]
 	ui = true
-  status = auto
-  branch = auto
+    status = auto
+    branch = auto
 [alias]
         lg = log --color --graph --pretty=format:'%C(red)%h -%C(green)%cr -%C(bold blue) %an -%Creset %s %C(yellow) %C(auto)%d ' --abbrev-commit --branches --tags --date=short
         cm = commit -m
