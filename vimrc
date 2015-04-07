@@ -148,7 +148,13 @@ set spell       "Enable Spellcheck by default
 set spelllang=en "Set englisch as default check, can be overriden by :setlocal spellang=de
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc settings 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set modeline
+vmap <C-c> :<Esc>`>a<CR><Esc>mx`<i<CR><Esc>my'xk$v'y!xclip -selection c<CR>u
+map <Insert> :set paste<CR>i<CR><CR><Esc>k:.!xclip -o<CR>JxkJx:set nopaste<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
