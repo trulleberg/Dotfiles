@@ -138,7 +138,7 @@ set ignorecase " case insensitive by default
 set smartcase " if there are caps, go case-sensitive
 set completeopt=menu,longest,preview " improve the way autocomplete works
 set cursorcolumn " show the current column
-set textwidth=79
+"set textwidth=79
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -178,3 +178,8 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 " Close vim if NERDTree is the last windows
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Options for vim-markdown
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nofoldenable    " Disable folding
