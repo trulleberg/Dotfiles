@@ -1,14 +1,14 @@
 [user]
-	name = Hannes Bellmer
-  email = "(none)"
+    name = Hannes Bellmer
+    email = "(none)"
 [core]
-  excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
 	compression = -1
 	editor = vim
 [color]
 	ui = true
-  status = auto
-  branch = auto
+    status = auto
+    branch = auto
 [alias]
         lg = log --color --graph --pretty=format:'%C(red)%h -%C(green)%cr -%C(bold blue) %an -%Creset %s %C(yellow) %C(auto)%d ' --abbrev-commit --branches --tags --date=short
         cm = commit -m
@@ -17,6 +17,9 @@
         s = status -s
         a = !git add . && git status
         au = !git add -u . && git status
+        tags = tag -l
+        branches = branch -av
+        remotes = remote -v
 [merge]
 	ff = false
 [push]

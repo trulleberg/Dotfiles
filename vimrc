@@ -21,6 +21,12 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Template Plugin
 Plugin 'aperezdc/vim-template'
+Plugin 'scrooloose/nerdtree'
+" Syntax for Doccker files
+Plugin 'ekalinin/Dockerfile.vim'
+" Vim Markdown syntax hightlight
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -81,7 +87,16 @@ set noerrorbells " don't make noise
 set list " we do what to show tabs, to ensure we get them out of my files
 "set listchars=tab:>-,trail:-,eol:$ " show tabs and trailing whitespace
 set listchars=tab:»·,trail:·,precedes:«,extends:» " show tabs and trailing whitespace
-
+set lsp=0 " space it out a little more (easier to read)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Split related
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual Cues
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -123,23 +138,23 @@ set ignorecase " case insensitive by default
 set smartcase " if there are caps, go case-sensitive
 set completeopt=menu,longest,preview " improve the way autocomplete works
 set cursorcolumn " show the current column
-set textwidth=79
+"set textwidth=79
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Folding
-"    Enable folding, but by default make it act like folding is
-"    off, because folding is annoying in anything but a few rare
-"    cases
+" Spellcheck
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set foldenable " Turn on folding
-set foldmarker={,} " Fold C style code
-set foldmethod=marker " Fold on the marker
-set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-set foldopen-=search " don't open folds when you search into them
-set foldopen-=undo " don't open folds when you undo stuff
+set spell       "Enable Spellcheck by default
+set spelllang=en "Set englisch as default check, can be overriden by :setlocal spellang=de
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc settings 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set modeline
+vmap <C-c> :<Esc>`>a<CR><Esc>mx`<i<CR><Esc>my'xk$v'y!xclip -selection c<CR>u
+map <Insert> :set paste<CR>i<CR><CR><Esc>k:.!xclip -o<CR>JxkJx:set nopaste<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Encoding
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -150,3 +165,21 @@ set enc=utf-8 " UTF-8 as default encoding
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:username = "Hannes|L3"
 let g:email ="hanbel@de.ibm.com"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Options for NERDTree, from https://github.com/scrooloose/nerdtree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Open NERDTree when no file is spcified!
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" CTRL N Toggles NERDTree
+"map <silent> <C-n> :NERDTreeFocus<CR>
+map <silent> <C-n> :NERDTreeToggle<CR>
+" Close vim if NERDTree is the last windows
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Options for vim-markdown
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nofoldenable    " Disable folding
