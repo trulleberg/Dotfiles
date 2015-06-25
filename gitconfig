@@ -22,8 +22,10 @@
         t = tag -l
         unstage = reset HEAD
         uncommit = reset --soft HEAD^
-	pl = pull --rebase
-	ms = merge --squash
+        branches = branch -av
+        remotes = remote -v
+    	pl = pull --rebase
+	    ms = merge --squash
 [merge]
     ff = false
     summary = true
