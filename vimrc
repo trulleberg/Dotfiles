@@ -128,12 +128,13 @@ filetype plugin indent on " load filetype plugins and indent settings
 set fo=tcrq " See Help (complex)
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set expandtab " no tabs use spaces instead
-set nowrap " do not wrap line
+"set nowrap " do not wrap line
 set preserveindent " but above all -- follow the conventions laid before us
 set ignorecase " case insensitive by default
 set smartcase " if there are caps, go case-sensitive
 set completeopt=menu,longest,preview " improve the way autocomplete works
 set cursorcolumn " show the current column
+"set textwidth=79
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
@@ -150,9 +151,16 @@ set foldopen-=undo " don't open folds when you undo stuff
 
 
 
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Misc
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set modeline
+set spell
+set spelllang=de,en
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Encoding

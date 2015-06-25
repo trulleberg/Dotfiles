@@ -33,7 +33,9 @@ if [ "$(uname)" == "Darwin" ]; then
   shell -$SHELL
 elif [ $(uname) = "Linux" ]; then
   bindkey ^[[1;3D prev
+  bindkey ^H prev
   bindkey ^[[1;3C next
+  bindkey ^L next
 # Make ctrl+pageup/down work for scroll
   bindkey "^[[5;5~" eval "copy" "stuff ^b"
   bindkey "^[[6;5~" eval "copy" "stuff ^f"

@@ -29,3 +29,5 @@
     summary = true
 [gc]
   auto=1
+[github]
+	user = trulleberg
