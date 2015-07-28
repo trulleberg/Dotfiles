@@ -57,6 +57,8 @@ function git_prompt_vars {
 
     GPS="["$BRANCH$GIT_STATE$GIT_AHEAD$GIT_BEHIND$GIT_STASH"${BWhite}]"
   else
+      #This cleans the non zero return code if not in GIT repo, usefull when using sterred
+    w &> /dev/null 
     GPS=""
   fi
 }
