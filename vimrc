@@ -144,8 +144,9 @@ set cursorcolumn " show the current column
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spellcheck
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set spell       "Enable Spellcheck by default
+"set spell       "Enable Spellcheck by default
 set spelllang=en "Set englisch as default check, can be overriden by :setlocal spellang=de
+au BufRead *.txt setlocal spell
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -163,8 +164,8 @@ set enc=utf-8 " UTF-8 as default encoding
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Options for vim-template (and others??)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:username = "Hannes|L3"
-let g:email ="hanbel@de.ibm.com"
+let g:username = "Hannes Bellmer"
+let g:email ="hannes.bellmer@netapp.com
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Options for NERDTree, from https://github.com/scrooloose/nerdtree
