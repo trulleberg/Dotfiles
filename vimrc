@@ -165,7 +165,7 @@ set enc=utf-8 " UTF-8 as default encoding
 " Options for vim-template (and others??)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:username = "Hannes Bellmer"
-let g:email ="hannes.bellmer@netapp.com
+let g:email ="hannes.bellmer@netapp.com"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Options for NERDTree, from https://github.com/scrooloose/nerdtree
