@@ -23,4 +23,3 @@ alias ..='cd ..' # Go up one directory
 alias ...='cd ../..' # Go up two directories
 alias ....='cd ../../..' # Go up three directories
 alias cpp='rsync --progress -ah'
-alias ecuget='wget --http-user=$INTRANETID --ask-password'
