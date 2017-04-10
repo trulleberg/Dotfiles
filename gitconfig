@@ -33,3 +33,5 @@
   auto=1
 [github]
 	user = trulleberg
+[push]
+	default = simple
