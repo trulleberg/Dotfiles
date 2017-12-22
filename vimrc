@@ -47,7 +47,7 @@ filetype plugin indent on " required
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 let &t_Co=256 " 256 colors color schemes
-colorscheme rainbo
+"colorscheme rainbo
 "let g:solarized_termcolors=16
 "colorscheme solarized
 syntax on " syntax highlighting on
@@ -157,8 +157,8 @@ set foldopen-=undo " don't open folds when you undo stuff
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set modeline
-set spell
-set spelllang=de,en
+"set spell
+"set spelllang=de,en
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
