@@ -27,6 +27,9 @@ Plugin 'ekalinin/Dockerfile.vim'
 " Vim Markdown syntax hightlight
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'luochen1990/rainbow'
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,7 +52,7 @@ filetype plugin indent on    " required
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 let &t_Co=256 " 256 colors color schemes
-colorscheme rainbo
+"colorscheme rainbo
 "let g:solarized_termcolors=16
 "colorscheme solarized
 syntax on " syntax highlighting on
