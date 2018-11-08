@@ -24,3 +24,5 @@ alias ...='cd ../..' # Go up two directories
 alias ....='cd ../../..' # Go up three directories
 alias cpp='rsync --progress -ah'
 alias doch='sudo "$BASH" -c "$(history -p !!)"'
+alias ip='ip -color'
+alias ips='ip -brief a'
