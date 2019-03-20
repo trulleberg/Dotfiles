@@ -21,4 +21,6 @@ alias ..='cd ..' # Go up one directory
 alias ...='cd ../..' # Go up two directories
 alias ....='cd ../../..' # Go up three directories
 alias cpp='rsync --progress -ah'
-alias ecuget='wget --http-user=$INTRANETID --ask-password'
+alias hmux='tmux attach-session -t hb || tmux new-session -s hb'
+alias dusch="du -sch * | sort -k1 -h "
+alias doch='sudo $(history -p !-1)'

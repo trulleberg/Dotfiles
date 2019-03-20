@@ -1,6 +1,6 @@
 [user]
 	name = Hannes Bellmer
-  email = "(none)"
+	email = '<>'
 [core]
   excludesfile = ~/.gitignore
 	compression = -1
@@ -33,3 +33,5 @@
   auto=1
 [github]
 	user = trulleberg
+[push]
+	default = simple
