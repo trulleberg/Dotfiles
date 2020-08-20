@@ -10,8 +10,11 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-#Start with my aliases
+###############################################################################
+#
+#             A L I A S S E S
+#
+###############################################################################
 alias -g dusch="du -sch * | sort -k1 -h "
 alias -g hmux='tmux attach-session -t hb || tmux new-session -s hb'
 alias -g g='git'
@@ -26,6 +29,7 @@ alias -g ....='cd ../../..' # Go up three directories
 alias -g cpp='rsync --progress -ah'
 alias -g doch='sudo "$BASH" -c "$(history -p !!)"'
 
+
 #Suffix aliasses for zsh
 # Azure CLI files
 alias -s azcli=code
@@ -39,11 +43,17 @@ alias -s json=code
 # bulk association
 alias -s {html,txt,log}=code
 
-
 # macOS aliasses
 if [[ $OSTYPE == darwin* ]]; then
-alias flush='dscacheutil -flushcache'
+   alias -g flushdns='dscacheutil -flushcache'
+fi
 
+
+###############################################################################
+#
+#             F U N C T I O N S
+#
+###############################################################################
 
 function extract () {
     if [ -f $1 ] ; then
@@ -60,48 +70,19 @@ function extract () {
         *.Z)         uncompress $1  ;;
         *.7z)        7z x $1        ;;
         *)     echo "'$1' cannot be extracted via extract()" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
+      esac
+    else
+        echo "'$1' is not a valid file"
+    fi
 }
 
 function mkdircd () { mkdir "$@" && eval cd "\"\$$#\""; }
 
-# ssh wrapper that rename current tmux window to the hostname of the
-# remote host.
-function ssh() {
-    # Do nothing if we are not inside tmux or ssh is called without arguments
-    if [[ $# == 0 || -z $TMUX ]]; then
-        command ssh $@
-        return
-    fi
-    # The hostname is the last parameter
-    local remote="${@: -1}"
-    local old_name="$(tmux display-message -p '#W')"
-    local renamed=0
-    # Save the current name
-    if [[ $remote != -* ]]; then
-        renamed=1
-        tmux rename-window $remote
-    fi
-    command ssh $@
-    sleep 2
-    if [[ $renamed == 1 ]]; then
-        tmux rename-window "$old_name"
-    fi
-}
-
-# print the header (the first line of input)
-# # and then run the specified command on the body (the rest of the input)
-# # use it in a pipeline, e.g. ps | body grep somepattern
-body() {
-    IFS= read -r header
-    printf '%s\n' "$header"
-    "$@"
-}
-
-
+###############################################################################
+#
+#             A U T O C O M P L E T E
+#
+###############################################################################
 
 # Highlight the current autocomplete option
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -114,6 +95,6 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<-
 # Allow for autocomplete to be case insensitive
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
   '+l:|?=** r:|?=**'
-
+#
 # Initialize the autocompletion
 autoload -Uz compinit && compinit -i
