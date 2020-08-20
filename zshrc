@@ -10,73 +10,35 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-###############################################################################
-#
-#             A L I A S S E S
-#
-###############################################################################
-alias -g dusch="du -sch * | sort -k1 -h "
-alias -g hmux='tmux attach-session -t hb || tmux new-session -s hb'
-alias -g g='git'
-alias -g free="free -m"
-alias -g df="df -h"
-alias -g vi="vim"
-alias -g ll='ls -hlGF'
-alias -g mkdir="mkdir -p"
-alias -g ..='cd ..' # Go up one directory
-alias -g ...='cd ../..' # Go up two directories
-alias -g ....='cd ../../..' # Go up three directories
-alias -g cpp='rsync --progress -ah'
-alias -g doch='sudo "$BASH" -c "$(history -p !!)"'
+
+# Load Zsh tools for syntax highlighting and autosuggestions
+HOMEBREW_FOLDER="/usr/local/share"
+source "${HOMEBREW_FOLDER}/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "${HOMEBREW_FOLDER}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+#Enter folder without CD
+setopt  autocd autopushd 
+
+#History stuff
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=10000
+export HISTSIZE=10000
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
 
 
-#Suffix aliasses for zsh
-# Azure CLI files
-alias -s azcli=code
+# load custom executable functions
+for function in ~/dotfiles/functions/*; do
+  source $function
+done
 
-# Markdown files
-alias -s md=code
-
-# JSON files
-alias -s json=code
-
-# bulk association
-alias -s {html,txt,log}=code
-
-# macOS aliasses
-if [[ $OSTYPE == darwin* ]]; then
-   alias -g flushdns='dscacheutil -flushcache'
-fi
+# aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
 
 
-###############################################################################
-#
-#             F U N C T I O N S
-#
-###############################################################################
 
-function extract () {
-    if [ -f $1 ] ; then
-      case $1 in
-        *.tar.bz2)   tar xjf $1     ;;
-        *.tar.gz)    tar xzf $1     ;;
-        *.bz2)       bunzip2 $1     ;;
-        *.rar)       unrar e $1     ;;
-        *.gz)        gunzip $1      ;;
-        *.tar)       tar xf $1      ;;
-        *.tbz2)      tar xjf $1     ;;
-        *.tgz)       tar xzf $1     ;;
-        *.zip)       unzip $1       ;;
-        *.Z)         uncompress $1  ;;
-        *.7z)        7z x $1        ;;
-        *)     echo "'$1' cannot be extracted via extract()" ;;
-      esac
-    else
-        echo "'$1' is not a valid file"
-    fi
-}
 
-function mkdircd () { mkdir "$@" && eval cd "\"\$$#\""; }
 
 ###############################################################################
 #
