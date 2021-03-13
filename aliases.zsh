@@ -29,18 +29,15 @@ alias -g G='| grep'
 alias dev="cd ~/dev/"
 
 #Aliasses for applications
-alias mail="open -a /Applications/Microsoft\ Outlook.app"
+alias mail="open -a /System/Applications/Mail.app"
 
 #Suffix aliasses for zsh
 # Azure CLI files
 alias -s azcli=code
-
 # Markdown files
 alias -s md=code
-
 # JSON files
 alias -s json=code
-
 # bulk association
 alias -s {html,txt,log}=code
 
