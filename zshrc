@@ -60,3 +60,9 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 #
 # Initialize the autocompletion
 autoload -Uz compinit && compinit -i
+
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+export PATH="/usr/local/sbin:$PATH"

@@ -22,11 +22,13 @@ alias k="kubectl"
 alias d="docker"
 alias hist="history -i 1"
 alias cat="bat"
-alias -g G='| grep'
+alias -g G='| grep -i'
+alias -g F=' tail -f'
 
 
 # Aliasses for jumping around
 alias dev="cd ~/dev/"
+alias hba="cd ~/dev/hannesb/ansible"
 
 #Aliasses for applications
 alias mail="open -a /Applications/Microsoft\ Outlook.app"
@@ -48,3 +50,11 @@ alias -s {html,txt,log}=code
 if [[ $OSTYPE == darwin* ]]; then
    alias -g flushdns='dscacheutil -flushcache'
 fi
+
+
+
+python-http(){
+#  chrome http://localhost:8000
+  open http://localhost:8000
+  python3 -m http.server 8000
+}
