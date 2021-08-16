@@ -46,6 +46,9 @@ alias -s json=code
 # bulk association
 alias -s {html,txt,log}=code
 
+# hannes addon
+alias -s {xml,yml,yaml}=code
+
 # macOS aliasses
 if [[ $OSTYPE == darwin* ]]; then
    alias -g flushdns='dscacheutil -flushcache'
