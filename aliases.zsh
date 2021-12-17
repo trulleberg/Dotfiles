@@ -23,6 +23,7 @@ alias d="docker"
 alias hist="history -i 1"
 alias cat="bat"
 alias -g G='| grep'
+alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 
 # Aliasses for jumping around

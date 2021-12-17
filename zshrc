@@ -36,10 +36,6 @@ done
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-
-
-
-
 ###############################################################################
 #
 #             A U T O C O M P L E T E
@@ -60,3 +56,23 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 #
 # Initialize the autocompletion
 autoload -Uz compinit && compinit -i
+
+
+export PATH="/usr/local/opt/python@3.9/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+PATH=$(pyenv root)/shims:$PATH
+
+#FZF
+export FZF_DEFAULT_OPTS="
+--height 40% 
+--layout=reverse 
+--border 
+--multi
+--bind '?:toggle-preview'"
+
+export FZF_DEFAULT_COMMAND="fd --type f"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
