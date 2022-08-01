@@ -4,7 +4,7 @@
 #
 ###############################################################################
 alias dusch="du -sch * | sort -k1 -h "
-alias hmux='tmux attach-session -t hb || tmux new-session -s hb'
+alias hmux='tmux -u attach-session -t hb || tmux -u new-session -s hb \; split-window -v -p 20 \; split-window -h '
 alias g='git'
 alias free="free -m"
 alias df="df -h"

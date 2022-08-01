@@ -19,7 +19,7 @@ function extract () {
      fi
 }
 
-function mkdircd () { mkdir "$@" && eval cd "\"\$$#\""; }
+function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 # ssh wrapper that rename current tmux window to the hostname of the
 # remote host.

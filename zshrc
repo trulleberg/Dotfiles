@@ -1,4 +1,5 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+#export PATH="/usr/local/sbin:$PATH"
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -36,10 +37,6 @@ done
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-
-
-
-
 ###############################################################################
 #
 #             A U T O C O M P L E T E
@@ -62,7 +59,24 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 autoload -Uz compinit && compinit -i
 
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+###############################################################################
+#
+#           P Y E N V && P Y E N V - V I R T U A L E N V
+#
+###############################################################################
+#if command -v pyenv 1>/dev/null 2>&1; then
+#  eval "$(pyenv init -)"
+#fi
 export PATH="/usr/local/sbin:$PATH"
+PATH=$(pyenv root)/shims:$PATH
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+# FZF Keybindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--height 40% --border --layout=reverse --multi'
+export FZF_DEFAULT_COMMAND='fd --type f --no-hidden --follow --exclude .git'
